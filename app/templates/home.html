@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1 class="page-header">Project 1</h1>
+<p class="lead"> Completed by Jeante Boreland</p>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+{% include 'flash_messages.html' %}
+
+    <div id="ProfHeading">
+        <h1>Profiles</h1>
+    </div>
+    
+    {% for user in users %}
+
+    <div id="container">
+        <img id="profilepics" src="{{ url_for('static', filename='uploads/'+user.photo) }}">
+        <div id="user-info">
+            <b>{{ user.firstname}} {{ user.lastname }}</b> 
+            <br>
+            <img class="profileheader" src="{{ url_for('static', filename='images/user.png') }}"> {{ user.gender }} <br/>
+            <img class="profileheader" src="{{ url_for('static', filename='images/location.png') }}"> {{ user.location }}
+               
+
+        </div>
+        <a href="{{ url_for('user_spec', userid=user.id) }}" class="viewProfile" >View Profile</a>
+    </div>
+
+    <br/>
+    
+    {% endfor %}
+
+</div>    
+
+{% endblock %}

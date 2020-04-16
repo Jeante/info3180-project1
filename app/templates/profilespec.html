@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+{% include 'flash_messages.html' %}
+
+<div id="personalcontainer">
+
+    
+   <img id="profilepicture" src="{{ url_for('static', filename='uploads/' + user.photo) }}">
+   <div id="personalinfo">
+       <span id="profile-name"> 
+           {{ user.firstname }} 
+           {{ user.lastname }}
+        </span> 
+        <br><br>
+
+       <img class="profile-image" src="{{ url_for('static', filename='images/mail.png') }}"> {{ user.email }}
+       <br><br>
+       
+       <img id="locImg" src="{{ url_for('static', filename='images/location.png') }}"> {{ user.location }}
+       <br><br>
+       <img class="profile-image" src="{{ url_for('static', filename='images/calendar.png') }}"> Joined on {{ user.datejoined }}
+   </div>
+   
+   <div id="about">About Me</div>
+   <div id="bio"> {{ user.biography }} </div>
+   <button class="btnSend">Send</button>
+   <button class="btnFollow">Follow</button>
+
+</div>
+
+{% endblock %}
